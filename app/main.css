@@ -1,0 +1,197 @@
+@font-face {
+    font-family: "Work Sans";
+    src: url("./assets/fonts/WorkSans-VariableFont_wght.ttf");
+}
+:root {
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-light-pink: hsl(275, 100%, 97%);
+    --clr-grayish-purple: hsl(292, 16%, 49%);
+    --clr-dark-purple: hsl(292, 42%, 14%);
+    --clr-purple: hsl(281, 83%, 54%);
+
+    --fs-body: 0.875rem;
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+body {
+    line-height: 1.2;
+    font-family: "Work Sans";
+    background-color: var(--clr-light-pink);
+    -webkit-font-smoothing: antialiased;
+}
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.accordion-card {
+    margin-top: clamp(8.875rem, 8vw + 8vh + 2rem, 10.4375rem);
+    margin-bottom: clamp(8.875rem, 8vw + 8vh + 2rem, 10.4375rem);
+    width: min(100vw - 3rem, 100%);
+    max-width: 37.5rem;
+    background-color: var(--clr-white);
+    padding: 1.5rem 1.5rem 1.5rem;
+    border-radius: 0.625rem;
+    box-shadow: 0px 20px 49px 5px hsla(281, 45%, 54%, 15%);
+}
+.accordion-card h1 {
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+}
+.accordion-card h1 img {
+    height: 0.75em;
+    object-fit: contain;
+    margin-right: 1.5rem;
+}
+
+.accordion-wrapper {
+    list-style: none;
+    padding: 0;
+}
+
+.accordion-item {
+    padding-top: 1.25rem;
+}
+.accordion-item:not(:last-child) {
+    padding-bottom: 1.1875rem;
+}
+.accordion-item label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--clr-dark-purple);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding-right: 0.25rem;
+    min-height: 30px;
+}
+.accordion-item .content {
+    line-height: 1.5;
+    font-size: 0.875rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 500ms ease;
+}
+.accordion-item .content .pad {
+    display: block;
+    height: 1.5rem;
+}
+.accordion-item:not(:first-child) {
+    border-top: 2px solid var(--clr-light-pink);
+}
+.accordion-item label:hover .title {
+    color: var(--clr-purple);
+}
+.accordion-item input {
+    display: none;
+}
+.accordion-item input:checked + label .icon-btn span:last-child {
+    transform: rotate(0);
+}
+.accordion-item input:checked + label .icon-btn {
+    background-color: var(--clr-dark-purple);
+}
+.accordion-item input:checked + label + .content {
+    max-height: 31.25rem;
+}
+
+.icon-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 9999px;
+    background-color: var(--clr-purple);
+    margin-left: 2rem;
+    flex-shrink: 0;
+    transition: 200ms ease;
+}
+
+.icon-btn span {
+    width: 12px;
+    height: 2px;
+    background-color: var(--clr-white);
+    transition: 250ms ease;
+}
+
+.icon-btn span:last-child {
+    position: absolute;
+    transform: rotate(90deg);
+}
+
+.bg-pattern {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 14.5rem;
+}
+
+.bg-pattern img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+@media screen and (min-width: 40em) {
+    .bg-pattern {
+        height: 20rem;
+    }
+    .accordion-card {
+        border-radius: 1rem;
+        padding: 2.5rem;
+    }
+
+    .accordion-card h1 {
+        font-size: 3.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .accordion-item label {
+        font-size: 1.125rem;
+    }
+
+    .accordion-item .content {
+        font-size: 1rem;
+    }
+
+    .accordion-item {
+        padding-top: 1.5rem;
+    }
+
+    .accordion-item:not(:last-child) {
+        padding-bottom: 1.4375rem;
+    }
+}
