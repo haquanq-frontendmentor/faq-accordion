@@ -23,10 +23,6 @@ Users should be able to:
 
 ## Working in `fm-faq-accordion` repository
 
-### Packages being used
-
-- [`browser-sync`](https://github.com/BrowserSync/browser-sync)
-
 ### Clone this project to your machine
 
 Make sure you have Git installed in your system, open new terminal, run the following command:
