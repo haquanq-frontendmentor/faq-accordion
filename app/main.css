@@ -1,15 +1,26 @@
-@font-face {
-    font-family: "Work Sans";
-    src: url("./assets/fonts/WorkSans-VariableFont_wght.ttf");
-}
 :root {
     --clr-white: hsl(0, 0%, 100%);
-    --clr-light-pink: hsl(275, 100%, 97%);
-    --clr-grayish-purple: hsl(292, 16%, 49%);
-    --clr-dark-purple: hsl(292, 42%, 14%);
-    --clr-purple: hsl(281, 83%, 54%);
+    --clr-purple-100: hsl(275, 100%, 97%);
+    --clr-purple-300: hsl(292, 16%, 49%);
+    --clr-purple-500: hsl(281, 83%, 54%);
+    --clr-purple-900: hsl(292, 42%, 14%);
 
-    --fs-body: 0.875rem;
+    --font-sans: "Work Sans", sans-serif;
+    --font-normal: 400;
+    --font-semibold: 600;
+    --font-bold: 700;
+
+    --text-body: 0.875rem;
+    --text-heading-1: 2rem;
+    --text-heading-2: 1rem;
+
+    --leading-none: 1;
+    --leading-heading-1: 2.5rem;
+    --leading-heading-2: 1.1875rem;
+    --leading-paragraph: 1.3125rem;
+
+    --rounded-full: 9999px;
+    --rounded-sm: 0.625rem;
 }
 *,
 *::before,
@@ -17,182 +28,206 @@
     box-sizing: border-box;
     margin: 0;
 }
+
+body {
+    line-height: var(--leading-none);
+    -webkit-font-smoothing: antialiased;
+}
 img,
 picture,
-video,
-canvas,
 svg {
     display: block;
     max-width: 100%;
 }
-input,
-button,
-textarea,
-select {
+button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+    color: inherit;
     font: inherit;
 }
 p,
 h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h2 {
     overflow-wrap: break-word;
 }
-body {
-    line-height: 1.2;
-    font-family: "Work Sans";
-    background-color: var(--clr-light-pink);
-    -webkit-font-smoothing: antialiased;
-}
-main {
-    display: flex;
-    justify-content: center;
-}
-
-.accordion-card {
-    margin-top: clamp(8.875rem, 8vw + 8vh + 2rem, 10.4375rem);
-    margin-bottom: clamp(8.875rem, 8vw + 8vh + 2rem, 10.4375rem);
-    width: min(100vw - 3rem, 100%);
-    max-width: 37.5rem;
-    background-color: var(--clr-white);
-    padding: 1.5rem 1.5rem 1.5rem;
-    border-radius: 0.625rem;
-    box-shadow: 0px 20px 49px 5px hsla(281, 45%, 54%, 15%);
-}
-.accordion-card h1 {
-    font-size: 2rem;
-    margin-bottom: 0.25rem;
-    display: flex;
-    align-items: center;
-    color: var(--clr-dark-purple);
-}
-.accordion-card h1 img {
-    height: 0.75em;
-    object-fit: contain;
-    margin-right: 1.5rem;
-}
-
-.accordion-wrapper {
-    list-style: none;
-    padding: 0;
-}
-
-.accordion-item {
-    padding-top: 1.25rem;
-}
-.accordion-item:not(:last-child) {
-    padding-bottom: 1.1875rem;
-}
-.accordion-item .content {
-    line-height: 1.5;
-    font-size: 0.875rem;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 500ms ease;
-}
-.accordion-item .content .pad {
-    display: block;
-    height: 1.5rem;
-}
-.accordion-item label {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--clr-dark-purple);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    padding-right: 0.25rem;
-    min-height: 30px;
-}
-.accordion-item:not(:first-child) {
-    border-top: 2px solid var(--clr-light-pink);
-}
-.accordion-item label:hover .title {
-    color: var(--clr-purple);
-}
-.accordion-item input {
+[hidden] {
     display: none;
 }
-.accordion-item input:checked + label .icon-btn span:last-child {
-    transform: rotate(0);
-}
-.accordion-item input:checked + label .icon-btn {
-    background-color: var(--clr-dark-purple);
-}
-.accordion-item input:checked + label + .content {
-    max-height: 31.25rem;
-}
-
-.icon-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 9999px;
-    background-color: var(--clr-purple);
-    margin-left: 1.5rem;
-    flex-shrink: 0;
-    transition: 200ms ease;
-}
-
-.icon-btn span {
-    width: 12px;
-    height: 2px;
-    background-color: var(--clr-white);
-    transition: 250ms ease;
-}
-
-.icon-btn span:last-child {
+.sr-only {
     position: absolute;
-    transform: rotate(90deg);
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
-
-.bg-pattern {
-    z-index: -1;
+.main__container {
+    position: relative;
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    background-color: var(--clr-purple-100);
+    min-height: 100vh;
+    padding-top: clamp(8.875rem, 8vw + 8vh + 2rem, 10.4375rem);
+    padding-bottom: clamp(8.875rem, 8vw + 8vh + 2rem, 10.4375rem);
+}
+.main__bg-pattern {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     height: 14.5rem;
 }
-
-.bg-pattern img {
+.main__bg-pattern img {
     object-fit: cover;
     height: 100%;
     width: 100%;
 }
+.card {
+    z-index: 999;
+    position: relative;
+    margin: 0 auto;
+    width: min(100vw - 3rem, 37.5rem);
+    background-color: var(--clr-white);
+    border-radius: var(--rounded-sm);
+    padding: 1.5rem;
+    box-shadow: 0px 20px 49px 5px hsla(281, 45%, 54%, 15%);
+}
+.card__headline {
+    font-size: var(--text-heading-1);
+    line-height: var(--leading-heading-1);
+    color: var(--clr-purple-900);
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.1875rem;
+}
+.card__headline__icon {
+    height: 0.75em;
+    object-fit: contain;
+    margin-right: 1.5rem;
+}
+.faq__list {
+    list-style: none;
+    padding-left: 0;
+}
+.faq__item {
+    padding-top: 1.25rem;
+}
+.faq__item:not(:last-child) {
+    padding-bottom: 1.1875rem;
+}
+.faq__item:not(:first-child) {
+    border-top: 2px solid var(--clr-purple-100);
+}
+.faq__title {
+    padding-right: 0.1875rem;
+    min-height: 30px;
+    color: var(--clr-purple-900);
+    font-weight: var(--font-semibold);
+    font-size: var(--text-heading-2);
+    line-height: var(--leading-heading-2);
+    display: flex;
+    align-items: center;
+}
+.faq__btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: start;
+    transition-property: color;
+    transition-duration: 200ms;
+    transition-timing-function: ease;
+}
+.faq__btn__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: var(--rounded-full);
+    background-color: var(--clr-purple-500);
+    margin-left: 1.5rem;
+    flex-shrink: 0;
+    transition: background-color 200ms ease;
+}
+.faq__btn__icon span {
+    width: 12px;
+    height: 2px;
+    background-color: var(--clr-white);
+    transition: transform 250ms ease;
+}
+.faq__btn__icon span:last-child {
+    position: absolute;
+    transform: rotate(90deg);
+}
+.faq__btn[aria-expanded="true"] .faq__btn__icon {
+    transform: rotate(0);
+    background-color: var(--clr-purple-900);
+}
+.faq__btn[aria-expanded="true"] .faq__btn__icon span:last-child {
+    transform: rotate(0);
+}
+.faq__content {
+    line-height: var(--leading-paragraph);
+    overflow: hidden;
+}
+.faq__content::before {
+    display: block;
+    content: "";
+    height: 1.5rem;
+}
+.faq__content::after {
+    display: block;
+    content: "";
+    height: 1px;
+}
 
+@supports selector(:focus-visible) {
+    button:focus {
+        outline: none;
+    }
+    button:focus-visible {
+        outline: 2px dashed var(--clr-purple-500);
+        outline-offset: 4px;
+    }
+}
+@media (hover: hover) {
+    .faq__btn:hover {
+        color: var(--clr-purple-500);
+    }
+}
 @media screen and (min-width: 40em) {
-    .bg-pattern {
+    :root {
+        --text-body: 1rem;
+        --text-heading-1: 3.5rem;
+        --text-heading-2: 1.125rem;
+
+        --leading-paragraph: 1.5rem;
+        --leading-heading-1: 4rem;
+        --leading-heading-2: 1.5rem;
+    }
+    .main__bg-pattern {
         height: 20rem;
     }
-    .accordion-card {
+    .card {
         border-radius: 1rem;
-        padding: 2.5rem;
+        padding: 2.625rem 2.5rem 2.5rem 2.5rem;
     }
-
-    .accordion-card h1 {
-        font-size: 3.5rem;
-        margin-bottom: 0.5rem;
+    .card__headline {
+        margin-bottom: 0.8125rem;
     }
-
-    .accordion-item label {
-        font-size: 1.125rem;
-    }
-
-    .accordion-item .content {
-        font-size: 1rem;
-    }
-
-    .accordion-item {
+    .faq__item:not(:first-child) {
         padding-top: 1.5rem;
     }
-
-    .accordion-item:not(:last-child) {
+    .faq__item:not(:last-child) {
         padding-bottom: 1.4375rem;
+    }
+    .faq__content::before {
+        height: 1.4375rem;
     }
 }

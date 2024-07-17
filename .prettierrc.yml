@@ -1,5 +1,5 @@
 printWidth: 100
 overrides:
-  - files: ["*.css"]
+  - files: ["*.css", "*.js"]
     options:
       tabWidth: 4
