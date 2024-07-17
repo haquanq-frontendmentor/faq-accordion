@@ -1,25 +1,23 @@
-# Frontend Mentor - FAQ accordion solution
+## Frontend Mentor - FAQ accordion solution
 
 This is a solution to the [FAQ accordion challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/faq-accordion-wyfFdeBwBz).
 Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ### The challenge
 
-- No access to design files, attempt pixel-perfect :expressionless:
+- No access to design files, attempt pixel-perfect
 
 Users should be able to:
 
-- Hide/Show the answer to a question when the question is clicked :yum:
-- Navigate the questions and hide/show answers using keyboard navigation alone :yum:
-- View the optimal layout for the interface depending on their device's screen size :yum:
-- See hover and focus states for all interactive elements on the page :yum:
+- Hide/Show the answer to a question when the question is clicked
+- Navigate the questions and hide/show answers using keyboard navigation alone
+- View the optimal layout for the interface depending on their device's screen size
+- See hover and focus states for all interactive elements on the page
 
 ### Solution
 
-- Built with: `HTML` `CSS`
+- Built with: `HTML` `CSS` `JS`
 - Mobile-first workflow
-
-:link: [`Solution Link`](https://www.frontendmentor.io/solutions/only-html-and-css-dcEFye2_2i) :link: [`Live Site Link`](https://haquanq.github.io/fm-faq-accordion/)
 
 ![](./.docs/design/desktop-design.jpg)
 
