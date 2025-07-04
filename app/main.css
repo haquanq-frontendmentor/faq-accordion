@@ -170,6 +170,14 @@ h2 {
     justify-content: space-between;
     text-align: start;
 }
+.accordion__btn[aria-expanded="true"] {
+    --icon-background: var(--color-purple-500);
+    --icon-line-rotate-amount: 90deg;
+}
+.accordion__btn[aria-expanded="false"] {
+    --icon-background: var(--color-purple-900);
+    --icon-line-rotate-amount: 0;
+}
 .accordion__btn--icon {
     display: flex;
     justify-content: center;
@@ -177,9 +185,9 @@ h2 {
     width: 1.5rem;
     height: 1.5rem;
     border-radius: var(--rounded-full);
-    background-color: var(--color-purple-500);
     margin-left: 1.5rem;
     flex-shrink: 0;
+    background: var(--icon-background);
 }
 .accordion__btn--icon span {
     width: 0.75rem;
@@ -188,14 +196,7 @@ h2 {
 }
 .accordion__btn--icon span:last-child {
     position: absolute;
-    transform: rotate(90deg);
-}
-.accordion__btn[aria-expanded="true"] .accordion__btn--icon {
-    transform: rotate(0);
-    background-color: var(--color-purple-900);
-}
-.accordion__btn[aria-expanded="true"] .accordion__btn--icon span:last-child {
-    transform: rotate(0);
+    transform: rotate(var(--icon-line-rotate-amount));
 }
 .accordion__content {
     line-height: var(--leading-paragraph);
@@ -236,6 +237,17 @@ h2 {
         transition-property: transform;
         transition-duration: 250ms;
         transition-timing-function: ease;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .accordion__btn {
+        transition: none;
+    }
+    .accordion__btn--icon {
+        transition: none;
+    }
+    .accordion__btn--icon span {
+        transition: none;
     }
 }
 @media (hover: hover) {
