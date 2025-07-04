@@ -13,8 +13,8 @@
     font-style: normal;
     font-weight: 600;
     src: url("./assets/fonts/work-sans-v23-latin-600.woff2") format("woff2"),
-        /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-            url("./assets/fonts/work-sans-v23-latin-600.ttf") format("truetype"); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+        /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */ url("./assets/fonts/work-sans-v23-latin-600.ttf")
+            format("truetype"); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
 }
 @font-face {
     font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
@@ -22,8 +22,8 @@
     font-style: normal;
     font-weight: 700;
     src: url("./assets/fonts/work-sans-v23-latin-700.woff2") format("woff2"),
-        /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-            url("./assets/fonts/work-sans-v23-latin-700.ttf") format("truetype"); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+        /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */ url("./assets/fonts/work-sans-v23-latin-700.ttf")
+            format("truetype"); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
 }
 :root {
     --color-white: hsl(0, 0%, 100%);
@@ -169,9 +169,6 @@ h2 {
     align-items: center;
     justify-content: space-between;
     text-align: start;
-    transition-property: color;
-    transition-duration: 200ms;
-    transition-timing-function: ease;
 }
 .accordion__btn[aria-expanded="true"] {
     --icon-background: var(--color-purple-500);
@@ -191,19 +188,11 @@ h2 {
     margin-left: 1.5rem;
     flex-shrink: 0;
     background: var(--icon-background);
-
-    transition-property: background-color;
-    transition-duration: 200ms;
-    transition-timing-function: ease;
 }
 .accordion__btn--icon span {
     width: 0.75rem;
     height: 0.125rem;
     background-color: var(--color-white);
-
-    transition-property: transform;
-    transition-duration: 250ms;
-    transition-timing-function: ease;
 }
 .accordion__btn--icon span:last-child {
     position: absolute;
@@ -231,6 +220,17 @@ h2 {
     button:focus-visible {
         outline: 2px dashed var(--color-purple-500);
         outline-offset: 4px;
+    }
+}
+@media (prefers-reduced-motion: none) {
+    .accordion__btn {
+        transition: color 200ms ease;
+    }
+    .accordion__btn--icon {
+        transition: background-color 200ms ease;
+    }
+    .accordion__btn--icon span {
+        transition: transform 250ms ease;
     }
 }
 @media (prefers-reduced-motion: reduce) {
