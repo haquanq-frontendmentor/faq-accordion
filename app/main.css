@@ -1,11 +1,38 @@
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Work Sans";
+    font-style: normal;
+    font-weight: 400;
+    src: url("./assets/fonts/work-sans-v23-latin-regular.woff2") format("woff2"),
+        /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+            url("./assets/fonts/work-sans-v23-latin-regular.ttf") format("truetype"); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+}
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Work Sans";
+    font-style: normal;
+    font-weight: 600;
+    src: url("./assets/fonts/work-sans-v23-latin-600.woff2") format("woff2"),
+        /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+            url("./assets/fonts/work-sans-v23-latin-600.ttf") format("truetype"); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+}
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Work Sans";
+    font-style: normal;
+    font-weight: 700;
+    src: url("./assets/fonts/work-sans-v23-latin-700.woff2") format("woff2"),
+        /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+            url("./assets/fonts/work-sans-v23-latin-700.ttf") format("truetype"); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+}
 :root {
-    --clr-white: hsl(0, 0%, 100%);
-    --clr-purple-100: hsl(275, 100%, 97%);
-    --clr-purple-300: hsl(292, 16%, 49%);
-    --clr-purple-500: hsl(281, 83%, 54%);
-    --clr-purple-900: hsl(292, 42%, 14%);
+    --color-white: hsl(0, 0%, 100%);
+    --color-purple-100: hsl(275, 100%, 97%);
+    --color-purple-300: hsl(292, 16%, 49%);
+    --color-purple-500: hsl(281, 83%, 54%);
+    --color-purple-900: hsl(292, 42%, 14%);
 
-    --font-sans: "Work Sans", sans-serif;
+    --font-primary: "Work Sans", sans-serif;
     --font-normal: 400;
     --font-semibold: 600;
     --font-bold: 700;
@@ -30,7 +57,7 @@
 }
 
 body {
-    line-height: var(--leading-none);
+    line-height: 1;
     -webkit-font-smoothing: antialiased;
 }
 img,
@@ -68,9 +95,9 @@ h2 {
 }
 .main__container {
     position: relative;
-    font-family: var(--font-sans);
+    font-family: var(--font-primary);
     font-size: var(--text-body);
-    background-color: var(--clr-purple-100);
+    background-color: var(--color-purple-100);
     min-height: 100vh;
     padding-top: clamp(8.875rem, 8vw + 8vh + 2rem, 10.4375rem);
     padding-bottom: clamp(8.875rem, 8vw + 8vh + 2rem, 10.4375rem);
@@ -92,8 +119,8 @@ h2 {
     position: relative;
     margin: 0 auto;
     width: min(100vw - 3rem, 37.5rem);
-    background-color: var(--clr-white);
-    color: var(--clr-purple-300);
+    background-color: var(--color-white);
+    color: var(--color-purple-300);
     border-radius: var(--rounded-sm);
     padding: 1.5rem;
     box-shadow: 0px 20px 49px 5px hsla(281, 45%, 54%, 15%);
@@ -101,7 +128,7 @@ h2 {
 .card__headline {
     font-size: var(--text-heading-1);
     line-height: var(--leading-heading-1);
-    color: var(--clr-purple-900);
+    color: var(--color-purple-900);
     display: flex;
     align-items: center;
     margin-bottom: 0.1875rem;
@@ -122,12 +149,12 @@ h2 {
     padding-bottom: 1.1875rem;
 }
 .faq__item:not(:first-child) {
-    border-top: 2px solid var(--clr-purple-100);
+    border-top: 2px solid var(--color-purple-100);
 }
 .faq__title {
     padding-right: 0.1875rem;
     min-height: 30px;
-    color: var(--clr-purple-900);
+    color: var(--color-purple-900);
     font-weight: var(--font-semibold);
     font-size: var(--text-heading-2);
     line-height: var(--leading-heading-2);
@@ -151,7 +178,7 @@ h2 {
     width: 1.5rem;
     height: 1.5rem;
     border-radius: var(--rounded-full);
-    background-color: var(--clr-purple-500);
+    background-color: var(--color-purple-500);
     margin-left: 1.5rem;
     flex-shrink: 0;
     transition: background-color 200ms ease;
@@ -159,7 +186,7 @@ h2 {
 .faq__btn__icon span {
     width: 12px;
     height: 2px;
-    background-color: var(--clr-white);
+    background-color: var(--color-white);
     transition: transform 250ms ease;
 }
 .faq__btn__icon span:last-child {
@@ -168,7 +195,7 @@ h2 {
 }
 .faq__btn[aria-expanded="true"] .faq__btn__icon {
     transform: rotate(0);
-    background-color: var(--clr-purple-900);
+    background-color: var(--color-purple-900);
 }
 .faq__btn[aria-expanded="true"] .faq__btn__icon span:last-child {
     transform: rotate(0);
@@ -193,13 +220,13 @@ h2 {
         outline: none;
     }
     button:focus-visible {
-        outline: 2px dashed var(--clr-purple-500);
+        outline: 2px dashed var(--color-purple-500);
         outline-offset: 4px;
     }
 }
 @media (hover: hover) {
     .faq__btn:hover {
-        color: var(--clr-purple-500);
+        color: var(--color-purple-500);
     }
 }
 @media screen and (min-width: 40em) {
