@@ -4,7 +4,7 @@ const preferReducedMotionMedia = window.matchMedia("(prefers-reduced-motion: red
 
 const transitionDuration = 300;
 
-let preferReducedMotion = false;
+let preferReducedMotion = preferReducedMotionMedia.matches;
 
 preferReducedMotionMedia.addEventListener("change", (e) => {
     preferReducedMotion = e.matches;
