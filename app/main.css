@@ -169,6 +169,12 @@ h2 {
     align-items: center;
     justify-content: space-between;
     text-align: start;
+    transition: color 200ms ease;
+}
+@media (prefers-reduced-motion: reduce) {
+    .accordion__btn {
+        transition: none;
+    }
 }
 .accordion__btn[aria-expanded="true"] {
     --icon-background: var(--color-purple-500);
@@ -188,11 +194,23 @@ h2 {
     margin-left: 1.5rem;
     flex-shrink: 0;
     background: var(--icon-background);
+    transition: background-color 200ms ease;
+}
+@media (prefers-reduced-motion: reduce) {
+    .accordion__btn--icon {
+        transition: none;
+    }
 }
 .accordion__btn--icon span {
     width: 0.75rem;
     height: 0.125rem;
     background-color: var(--color-white);
+    transition: transform 250ms ease;
+}
+@media (prefers-reduced-motion: reduce) {
+    .accordion__btn--icon span {
+        transition: none;
+    }
 }
 .accordion__btn--icon span:last-child {
     position: absolute;
@@ -220,28 +238,6 @@ h2 {
     button:focus-visible {
         outline: 2px dashed var(--color-purple-500);
         outline-offset: 4px;
-    }
-}
-@media (prefers-reduced-motion: none) {
-    .accordion__btn {
-        transition: color 200ms ease;
-    }
-    .accordion__btn--icon {
-        transition: background-color 200ms ease;
-    }
-    .accordion__btn--icon span {
-        transition: transform 250ms ease;
-    }
-}
-@media (prefers-reduced-motion: reduce) {
-    .accordion__btn {
-        transition: none;
-    }
-    .accordion__btn--icon {
-        transition: none;
-    }
-    .accordion__btn--icon span {
-        transition: none;
     }
 }
 @media (hover: hover) {
