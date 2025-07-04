@@ -48,6 +48,8 @@
 
     --rounded-full: 9999px;
     --rounded-sm: 0.625rem;
+
+    --shadow-md: 0px 20px 49px 5px hsla(281, 45%, 54%, 15%);
 }
 *,
 *::before,
@@ -84,10 +86,10 @@ h2 {
 }
 .sr-only {
     position: absolute;
-    width: 1px;
-    height: 1px;
+    width: 0.125rem;
+    height: 0.125rem;
     padding: 0;
-    margin: -1px;
+    margin: -1rem;
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
@@ -123,7 +125,7 @@ h2 {
     color: var(--color-purple-300);
     border-radius: var(--rounded-sm);
     padding: 1.5rem;
-    box-shadow: 0px 20px 49px 5px hsla(281, 45%, 54%, 15%);
+    box-shadow: var(--shadow-md);
 }
 .card__title {
     font-size: var(--text-heading-1);
@@ -153,7 +155,7 @@ h2 {
 }
 .accordion__question {
     padding-right: 0.1875rem;
-    min-height: 30px;
+    min-height: 1.875rem;
     color: var(--color-purple-900);
     font-weight: var(--font-semibold);
     font-size: var(--text-heading-2);
@@ -167,9 +169,6 @@ h2 {
     align-items: center;
     justify-content: space-between;
     text-align: start;
-    transition-property: color;
-    transition-duration: 200ms;
-    transition-timing-function: ease;
 }
 .accordion__btn--icon {
     display: flex;
@@ -181,13 +180,11 @@ h2 {
     background-color: var(--color-purple-500);
     margin-left: 1.5rem;
     flex-shrink: 0;
-    transition: background-color 200ms ease;
 }
 .accordion__btn--icon span {
-    width: 12px;
-    height: 2px;
+    width: 0.75rem;
+    height: 0.125rem;
     background-color: var(--color-white);
-    transition: transform 250ms ease;
 }
 .accordion__btn--icon span:last-child {
     position: absolute;
@@ -212,7 +209,7 @@ h2 {
 .accordion__content::after {
     display: block;
     content: "";
-    height: 1px;
+    height: 0.0625rem;
 }
 
 @supports selector(:focus-visible) {
@@ -222,6 +219,23 @@ h2 {
     button:focus-visible {
         outline: 2px dashed var(--color-purple-500);
         outline-offset: 4px;
+    }
+}
+@media (prefers-reduced-motion: no-preference) {
+    .accordion__btn {
+        transition-property: color;
+        transition-duration: 200ms;
+        transition-timing-function: ease;
+    }
+    .accordion__btn--icon {
+        transition-property: background-color;
+        transition-duration: 200ms;
+        transition-timing-function: ease;
+    }
+    .accordion__btn--icon span {
+        transition-property: transform;
+        transition-duration: 250ms;
+        transition-timing-function: ease;
     }
 }
 @media (hover: hover) {

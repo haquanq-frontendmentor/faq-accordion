@@ -1,87 +1,97 @@
-const accordion = {
-    btnElements: document.querySelectorAll(".faq__btn"),
-    contentElements: document.querySelectorAll(".faq__content"),
-    init() {
-        const transitionDuration = 300;
+const accordionButtons = document.querySelectorAll(".accordion__btn");
+const accordionContents = document.querySelectorAll(".accordion__content");
+const preferReducedMotionMedia = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-        this.btnElements.forEach((faqBtn, index) => {
-            let requestingFrameId = null;
+const transitionDuration = 300;
 
-            const faqContentElement = this.contentElements[index];
-            if (faqBtn.getAttribute("aria-expanded") == "true") {
-                faqContentElement.style.height = `auto`;
-            }
+let preferReducedMotion = false;
 
-            const hideContent = () => {
-                faqBtn.setAttribute("aria-expanded", "false");
-                const currentHeight = faqContentElement.clientHeight;
-                faqContentElement.style.height = `${currentHeight}px`;
-                faqContentElement.style.transition = `height ${transitionDuration}ms ease`;
+preferReducedMotionMedia.addEventListener("change", (e) => {
+    preferReducedMotion = e.matches;
+});
 
-                if (requestingFrameId !== null) {
-                    cancelAnimationFrame(requestingFrameId);
+accordionContents.forEach((accordionContent, index) => {
+    if (index > 0) {
+        accordionContent.setAttribute("hidden", "");
+        accordionButtons[index].setAttribute("aria-expanded", "false");
+    }
+});
+
+accordionButtons.forEach((accordionButton, index) => {
+    let requestingFrameId = null;
+    const accordionContent = accordionContents[index];
+
+    const hideContent = () => {
+        accordionButton.setAttribute("aria-expanded", "false");
+        if (preferReducedMotion) {
+            accordionContent.setAttribute("hidden", "");
+            return;
+        }
+        accordionContent.style.height = `${accordionContent.clientHeight}px`;
+        accordionContent.style.transition = `height ${transitionDuration}ms ease`;
+
+        if (requestingFrameId !== null) {
+            cancelAnimationFrame(requestingFrameId);
+            requestingFrameId = null;
+        }
+        requestAnimationFrame(() => {
+            accordionContent.style.height = "0";
+
+            let startCleanUpTime;
+            const cleanUpRequest = (t) => {
+                if (!startCleanUpTime) startCleanUpTime = t;
+                if (t - startCleanUpTime >= transitionDuration) {
+                    accordionContent.style.height = "";
+                    accordionContent.style.transition = "";
+                    accordionContent.setAttribute("hidden", "");
                     requestingFrameId = null;
+                    return;
                 }
-                requestAnimationFrame(() => {
-                    faqContentElement.style.height = "0";
-
-                    let startCleanUpTime;
-                    const cleanUpRequest = (t) => {
-                        if (!startCleanUpTime) startCleanUpTime = t;
-                        if (t - startCleanUpTime >= transitionDuration) {
-                            faqContentElement.style.height = "";
-                            faqContentElement.style.transition = "";
-                            faqContentElement.setAttribute("hidden", "");
-                            requestingFrameId = null;
-                            return;
-                        }
-                        requestingFrameId = requestAnimationFrame(cleanUpRequest);
-                    };
-                    requestingFrameId = requestAnimationFrame(cleanUpRequest);
-                });
+                requestingFrameId = requestAnimationFrame(cleanUpRequest);
             };
-
-            const showContent = () => {
-                faqBtn.setAttribute("aria-expanded", "true");
-                faqContentElement.removeAttribute("hidden");
-                const currentHeight = faqContentElement.clientHeight;
-                faqContentElement.style.height = "auto";
-                const targetHeight = faqContentElement.clientHeight;
-
-                if (requestingFrameId != null) {
-                    cancelAnimationFrame(requestingFrameId);
-                    requestingFrameId = null;
-                    faqContentElement.style.height = `${currentHeight}px`;
-                } else {
-                    faqContentElement.style.height = "0";
-                }
-
-                requestAnimationFrame(() => {
-                    faqContentElement.style.transition = `height ${transitionDuration}ms ease`;
-                    faqContentElement.style.height = `${targetHeight}px`;
-
-                    let startCleanUpTime;
-                    const cleanUpRequest = (t) => {
-                        if (!startCleanUpTime) startCleanUpTime = t;
-                        if (t - startCleanUpTime >= transitionDuration) {
-                            faqContentElement.style.height = "";
-                            faqContentElement.style.transition = "";
-                            requestingFrameId = null;
-                            return;
-                        }
-                        requestingFrameId = requestAnimationFrame(cleanUpRequest);
-                    };
-                    requestingFrameId = requestAnimationFrame(cleanUpRequest);
-                });
-            };
-
-            faqBtn.addEventListener("click", (e) => {
-                const expanded = faqBtn.getAttribute("aria-expanded") === "true";
-                if (expanded) hideContent();
-                else showContent();
-            });
+            requestingFrameId = requestAnimationFrame(cleanUpRequest);
         });
-    },
-};
+    };
 
-accordion.init();
+    const showContent = () => {
+        accordionButton.setAttribute("aria-expanded", "true");
+        accordionContent.removeAttribute("hidden");
+        if (preferReducedMotion) return;
+
+        const currentHeight = accordionContent.clientHeight;
+        accordionContent.style.height = "auto";
+        const targetHeight = accordionContent.clientHeight;
+
+        if (requestingFrameId != null) {
+            cancelAnimationFrame(requestingFrameId);
+            requestingFrameId = null;
+            accordionContent.style.height = `${currentHeight}px`;
+        } else {
+            accordionContent.style.height = "0";
+        }
+
+        requestAnimationFrame(() => {
+            accordionContent.style.transition = `height ${transitionDuration}ms ease`;
+            accordionContent.style.height = `${targetHeight}px`;
+
+            let startCleanUpTime;
+            const cleanUpRequest = (t) => {
+                if (!startCleanUpTime) startCleanUpTime = t;
+                if (t - startCleanUpTime >= transitionDuration) {
+                    accordionContent.style.height = "";
+                    accordionContent.style.transition = "";
+                    requestingFrameId = null;
+                    return;
+                }
+                requestingFrameId = requestAnimationFrame(cleanUpRequest);
+            };
+            requestingFrameId = requestAnimationFrame(cleanUpRequest);
+        });
+    };
+
+    accordionButton.addEventListener("click", (e) => {
+        const expanded = accordionButton.getAttribute("aria-expanded") === "true";
+        if (expanded) hideContent();
+        else showContent();
+    });
+});
