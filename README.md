@@ -81,7 +81,7 @@ Having these tools installed:
 Open new terminal, run the following command:
 
 ```
-git clone https://github.com/haquanq/fm-faq-accordion.git
+git clone https://github.com/haquanq-frontendmentor/faq-accordion.git
 ```
 
 Then, run `npm install` to install all dependencies.
