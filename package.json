@@ -1,6 +1,6 @@
 {
-  "name": "fm-blog-preview-card",
-  "description": "Solution for frontendmentor.io challenge: blog-preview-card",
+  "name": "faq-accordion",
+  "description": "Solution for frontendmentor.io challenge: faq-accordion",
   "devDependencies": {
     "browser-sync": "^3.0.2"
   },
