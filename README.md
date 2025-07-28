@@ -90,7 +90,7 @@ Then, run `npm install` to install all dependencies.
 npm install
 ```
 
-### Development workflow
+### Start development server
 
 In terminal, run `npm run dev` to start development server:
 
