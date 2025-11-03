@@ -1,0 +1,15 @@
+{
+  "name": "FAQ Accordion",
+  "featured": true,
+  "colors": {
+    "brand": "#A12CD7"
+  },
+  "images": {
+    "preview": "https://raw.githubusercontent.com/haquanq-frontendmentor/faq-accordion/main/docs/preview.jpg"
+  },
+  "frontendmentor": {
+    "difficulty": "newbie",
+    "challengeUrl": "https://www.frontendmentor.io/challenges/faq-accordion-wyfFdeBwBz",
+    "solutionUrl": "https://www.frontendmentor.io/solutions/mobile-first-responsive-pixel-perfect-w-html-and-css-and-js-iug2zdsQRZ"
+  }
+}
