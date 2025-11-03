@@ -3,7 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
+    <meta
+      name="description"
+      content="Get answers about Frontend Mentor—realistic coding challenges, project portfolio use, pricing (free options!), and how to get help if you get stuck on a challenge. Level up your frontend skills today!"
+    />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://haquanq-frontendmentor.github.io/faq-accordion/" />
+    <meta property="og:title" content="Frontend Mentor | FAQ Accordion" />
+    <meta
+      property="og:description"
+      content="Get answers about Frontend Mentor—realistic coding challenges, project portfolio use, pricing (free options!), and how to get help if you get stuck on a challenge. Level up your frontend skills today!"
+    />
+    <meta property="og:locale" content="en_US" />
+    <meta
+      property="og:image"
+      content="https://raw.githubusercontent.com/haquanq-frontendmentor/faq-accordion/main/docs/preview.jpg"
+    />
+
+    <!-- Twitter/X Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image:alt" content="Frontend Mentor | FAQ Accordion" />
+
+    <link rel="canonical" href="https://haquanq-frontendmentor.github.io/faq-accordion" />
 
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
     <link rel="stylesheet" href="./main.css" />
@@ -22,53 +45,32 @@
       </picture>
       <section class="card">
         <h1 class="card__title">
-          <img
-            class="card__title--icon"
-            src="./assets/images/icon-star.svg"
-            alt="star-icon"
-            aria-hidden="true"
-          />
+          <img class="card__title--icon" src="./assets/images/icon-star.svg" alt="star-icon" aria-hidden="true" />
           <span class="card__title--text" aria-hidden="true">FAQs</span>
           <span class="sr-only" id="accordion-list-label">Frequently asked questions</span>
         </h1>
         <ul class="accordion__list" aria-labelledby="accordion-list-label">
           <li class="accordion__item">
             <h2 class="accordion__question" id="accordion-label-1">
-              <button
-                type="button"
-                class="accordion__btn"
-                aria-controls="accordion-content-1"
-                aria-expanded="true"
-              >
-                <span class="accordion__btn--text"
-                  >What is Frontend Mentor, and how will it help me?</span
-                >
+              <button type="button" class="accordion__btn" aria-controls="accordion-content-1" aria-expanded="true">
+                <span class="accordion__btn--text">What is Frontend Mentor, and how will it help me?</span>
                 <span class="accordion__btn--icon">
                   <span></span>
                   <span></span>
                 </span>
               </button>
             </h2>
-            <div
-              class="accordion__content"
-              id="accordion-content-1"
-              aria-labelledby="accordion-label-1"
-            >
+            <div class="accordion__content" id="accordion-content-1" aria-labelledby="accordion-label-1">
               <p class="accordion__answer">
-                Frontend Mentor offers realistic coding challenges to help developers improve their
-                frontend coding skills with projects in HTML, CSS, and JavaScript. It's suitable for
-                all levels and ideal for portfolio building.
+                Frontend Mentor offers realistic coding challenges to help developers improve their frontend coding
+                skills with projects in HTML, CSS, and JavaScript. It's suitable for all levels and ideal for portfolio
+                building.
               </p>
             </div>
           </li>
           <li class="accordion__item">
             <h2 class="accordion__question" id="accordion-label-2">
-              <button
-                type="button"
-                class="accordion__btn"
-                aria-controls="accordion-content-2"
-                aria-expanded="true"
-              >
+              <button type="button" class="accordion__btn" aria-controls="accordion-content-2" aria-expanded="true">
                 <span class="accordion__btn--text">Is Frontend Mentor free?</span>
                 <span class="accordion__btn--icon">
                   <span></span>
@@ -76,71 +78,44 @@
                 </span>
               </button>
             </h2>
-            <div
-              class="accordion__content"
-              id="accordion-content-2"
-              aria-labelledby="accordion-label-2"
-            >
+            <div class="accordion__content" id="accordion-content-2" aria-labelledby="accordion-label-2">
               <p class="accordion__answer">
-                Yes, Frontend Mentor offers both free and premium coding challenges, with the free
-                option providing access to a range of projects suitable for all skill levels.
+                Yes, Frontend Mentor offers both free and premium coding challenges, with the free option providing
+                access to a range of projects suitable for all skill levels.
               </p>
             </div>
           </li>
           <li class="accordion__item">
             <h2 class="accordion__question" id="accordion-label-3">
-              <button
-                type="button"
-                class="accordion__btn"
-                aria-controls="accordion-content-3"
-                aria-expanded="true"
-              >
-                <span class="accordion__btn--text"
-                  >Can I use Frontend Mentor projects in my portfolio?</span
-                >
+              <button type="button" class="accordion__btn" aria-controls="accordion-content-3" aria-expanded="true">
+                <span class="accordion__btn--text">Can I use Frontend Mentor projects in my portfolio?</span>
                 <span class="accordion__btn--icon">
                   <span></span>
                   <span></span>
                 </span>
               </button>
             </h2>
-            <div
-              class="accordion__content"
-              id="accordion-content-3"
-              aria-labelledby="accordion-label-3"
-            >
+            <div class="accordion__content" id="accordion-content-3" aria-labelledby="accordion-label-3">
               <p class="accordion__answer">
-                Yes, you can use projects completed on Frontend Mentor in your portfolio. It's an
-                excellent way to showcase your skills to potential employers!
+                Yes, you can use projects completed on Frontend Mentor in your portfolio. It's an excellent way to
+                showcase your skills to potential employers!
               </p>
             </div>
           </li>
           <li class="accordion__item">
             <h2 class="accordion__question" id="accordion-label-4">
-              <button
-                type="button"
-                class="accordion__btn"
-                aria-controls="accordion-content-4"
-                aria-expanded="true"
-              >
-                <span class="accordion__btn--text"
-                  >How can I get help if I'm stuck on a challenge?</span
-                >
+              <button type="button" class="accordion__btn" aria-controls="accordion-content-4" aria-expanded="true">
+                <span class="accordion__btn--text">How can I get help if I'm stuck on a challenge?</span>
                 <span class="accordion__btn--icon">
                   <span></span>
                   <span></span>
                 </span>
               </button>
             </h2>
-            <div
-              class="accordion__content"
-              id="accordion-content-4"
-              aria-labelledby="accordion-label-4"
-            >
+            <div class="accordion__content" id="accordion-content-4" aria-labelledby="accordion-label-4">
               <p class="accordion__answer">
-                The best place to get help is inside Frontend Mentor's Discord community. There's a
-                help channel where you can ask questions and seek support from other community
-                members.
+                The best place to get help is inside Frontend Mentor's Discord community. There's a help channel where
+                you can ask questions and seek support from other community members.
               </p>
             </div>
           </li>
